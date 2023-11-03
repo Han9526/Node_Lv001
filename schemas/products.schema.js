@@ -1,4 +1,4 @@
-const { ObjectId } = require("bson");
+
 const mongoose = require("mongoose");
 
 // products
@@ -40,7 +40,11 @@ const productsSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  //   productStatus: {},
+    productStatus: {
+      type : String,
+      required: true,
+      default: "FOR_SALE"
+    },
   productComments: {
     type: String,
     required: true,
