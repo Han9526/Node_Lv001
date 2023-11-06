@@ -1,30 +1,16 @@
-const { ObjectId } = require("bson");
 const mongoose = require("mongoose");
 
-// products
-
-// No
-// password
-// productName
-// thumbnailUrl
-// category
-// price
-// count 0-SOLD_OUT  FOR_SALE  등록시 FOR_SALE
-// date  수정했을 때도 업데이트
-// productComments
-
-// 따로 id값 부여안해도 자동으로 부여 _id:ObjectId("asdasdasdasdasd")
 const productsSchema = new mongoose.Schema({
   productId: {
     type: Number,
     required: true,
     unique: true,
   },
-  Name: {
+  name: {
     type: String,
     required: true,
   },
-  Password: {
+  password: {
     type: String,
     required: true,
   },
@@ -32,15 +18,16 @@ const productsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  productPrice: {
+  productquantity: {
     type: Number,
     required: true,
+    default: 1,
   },
-  productCount: {
-    type: Number,
+  productStatus: {
+    type: String,
     required: true,
+    default: "FOR_SALE",
   },
-  //   productStatus: {},
   productComments: {
     type: String,
     required: true,
